@@ -1,16 +1,20 @@
-import {  LucideIcon } from "lucide-react";
+import { LucideIcon } from "lucide-react";
 
 export default function StatsCard({
   icon: Icon,
   value,
   label,
+  hasBorder,
 }: {
   icon: LucideIcon;
   value: string;
   label: string;
+  hasBorder?: boolean;
 }) {
   return (
-    <div>
+    <div
+      className={hasBorder ? "border-r border-muted-foreground/20 pr-4" : ""}
+    >
       <div className="flex items-center justify-center gap-2">
         <Icon className="size-5 text-primary/70" />
         <p className="text-3xl sm:text-4xl font-bold">{value}</p>

@@ -31,8 +31,18 @@ export default function HeroSection() {
   };
 
   const statsData = [
-    { icon: RocketIcon, value: "1,200+", label: "Projects Shared" },
-    { icon: User2Icon, value: "50,000+", label: "Community Members" },
+    {
+      icon: RocketIcon,
+      value: "1,200+",
+      label: "Projects Shared",
+      hasBorder: true,
+    },
+    {
+      icon: User2Icon,
+      value: "50,000+",
+      label: "Community Members",
+      hasBorder: true,
+    },
     { icon: EyeIcon, value: "300,000+", label: "Votes Cast" },
   ];
   return (
