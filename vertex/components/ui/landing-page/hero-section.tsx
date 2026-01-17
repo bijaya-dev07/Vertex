@@ -4,13 +4,11 @@ import Link from "next/link";
 import {
   Rocket,
   MoveRight,
-  icons,
   RocketIcon,
   User2Icon,
   EyeIcon,
 } from "lucide-react";
 import StatsCard from "./stat-cards";
-import { stat } from "fs";
 
 export default function HeroSection() {
   const LiveBadge = () => {
