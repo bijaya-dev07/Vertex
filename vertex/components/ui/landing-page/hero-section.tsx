@@ -1,7 +1,16 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { Rocket, MoveRight } from "lucide-react";
+import {
+  Rocket,
+  MoveRight,
+  icons,
+  RocketIcon,
+  User2Icon,
+  EyeIcon,
+} from "lucide-react";
+import StatsCard from "./stat-cards";
+import { stat } from "fs";
 
 export default function HeroSection() {
   const LiveBadge = () => {
@@ -20,6 +29,12 @@ export default function HeroSection() {
       </Badge>
     );
   };
+
+  const statsData = [
+    { icon: RocketIcon, value: "1,200+", label: "Projects Shared" },
+    { icon: User2Icon, value: "50,000+", label: "Community Members" },
+    { icon: EyeIcon, value: "300,000+", label: "Votes Cast" },
+  ];
   return (
     <div>
       <section className="relative overflow-hidden bg-linear-to-b from-background via-background to-muted/20">
@@ -57,6 +72,11 @@ export default function HeroSection() {
                   Explore More
                 </Link>
               </Button>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 w-full ">
+              {statsData.map((stat) => (
+                <StatsCard key={stat.label} {...stat} />
+              ))}
             </div>
           </div>
         </div>
