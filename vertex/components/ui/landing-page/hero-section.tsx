@@ -7,11 +7,11 @@ export default function HeroSection() {
     return (
       <Badge
         variant="outline"
-        className="px-4 py-2 mb-8 text-sm backdrop:blur-sm"
+        className="px-4 py-2 mb-8 text-sm gap-1 backdrop:blur-sm"
       >
-        {" "}
         <span className="relative flex h-2 w-2">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>{" "}
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+          {"    "}
           <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
         </span>
         <span className="text-muted-foreground">
@@ -28,9 +28,7 @@ export default function HeroSection() {
             <LiveBadge />
 
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-tight mb-6 max-w-5xl">
-              Launch your product.
-              <br />
-              Get discovered. Grow with the community.
+              Launch your product, Get discovered, Grow with the community.
             </h1>
 
             <p className="text-muted-foreground text-lg sm:text-xl mb-10 max-w-2xl leading-relaxed">
