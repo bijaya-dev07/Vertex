@@ -1,6 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { Rocket, MoveRight } from "lucide-react";
 
 export default function HeroSection() {
   const LiveBadge = () => {
@@ -10,8 +11,7 @@ export default function HeroSection() {
         className="px-4 py-2 mb-8 text-sm gap-1 backdrop:blur-sm"
       >
         <span className="relative flex h-2 w-2">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-          {" "}
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>{" "}
           <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
         </span>
         <span className="text-muted-foreground">
@@ -39,7 +39,11 @@ export default function HeroSection() {
 
             <div className="flex flex-col sm:flex-row gap-4 mb-16">
               <Button asChild className="text-base px-6 shadow-lg" size="lg">
-                <Link href="/submit">Get Started</Link>
+                <Link href="/submit">
+                  {" "}
+                  <MoveRight className="size-5" />
+                  Get Started
+                </Link>
               </Button>
               <Button
                 variant="secondary"
@@ -47,7 +51,11 @@ export default function HeroSection() {
                 className="text-base px-6 shadow-lg"
                 size="lg"
               >
-                <Link href="/submit">Get Started</Link>
+                <Link href="/submit">
+                  {" "}
+                  <Rocket className="size-5" />
+                  Explore More
+                </Link>
               </Button>
             </div>
           </div>
