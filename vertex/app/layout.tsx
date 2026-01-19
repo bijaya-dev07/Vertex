@@ -8,7 +8,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Vertex - Launch your product, Get discovered, Grow with the community.",
+  title: "Vertex - Build Discover Grow",
   description: "Launch products. Get votes. Grow.",
 };
 
