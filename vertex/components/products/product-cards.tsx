@@ -20,7 +20,7 @@ interface product {
 export default function ProductCard({ product }: { product: product }) {
   return (
     <Link href={`/products/${product.id}`}>
-      <Card>
+      <Card className="group card-hover hover:bg-primary-foreground/10">
         <CardTitle>{product.name}</CardTitle>
         {product.isFeatuered && <Badge className="mb-2">Featured</Badge>}
         <CardDescription>{product.description}</CardDescription>
