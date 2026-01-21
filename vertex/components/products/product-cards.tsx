@@ -20,6 +20,7 @@ interface product {
 }
 
 export default function ProductCard({ product }: { product: product }) {
+  const hasVoted = false; // Replace with actual voting
   return (
     <Link href={`/products/${product.id}`}>
       <Card className="group card-hover hover:bg-primary-foreground/10 border-solid border-gray-400 min-h-55 mb-20">
@@ -45,15 +46,17 @@ export default function ProductCard({ product }: { product: product }) {
               <Button
                 variant="ghost"
                 size="icon-sm"
-                className="h-8 w-8 text-primary hover:bg-primary/20"
+                className={`h-8 w-8 hover:bg-primary/20 ${hasVoted ? "text-primary" : "text-foreground"}`}
               >
                 <ChevronUpIcon className="size-5" />
               </Button>
-              <span className="font-medium text-lg">{product.votes}</span>
+              <span className="font-sm font-semibold transition-colors text-foreground">
+                {product.votes}
+              </span>
               <Button
                 variant="ghost"
                 size="icon-sm"
-                className="h-8 w-8 text-gray-500 hover:bg-gray-500/20"
+                className={`h-8 w-8 hover:bg-primary/20 ${hasVoted ? "text-primary" : "text-foreground"}`}
               >
                 <ChevronUpIcon className="size-5 rotate-180" />
               </Button>
