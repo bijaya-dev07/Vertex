@@ -7,6 +7,8 @@ import {
   CardTitle,
 } from "../ui/card";
 import { Badge } from "../ui/badge";
+import { ChevronUpIcon, StarIcon } from "lucide-react";
+import { Button } from "../ui/button";
 
 interface product {
   id: number;
@@ -20,17 +22,41 @@ interface product {
 export default function ProductCard({ product }: { product: product }) {
   return (
     <Link href={`/products/${product.id}`}>
-      <Card className="group card-hover hover:bg-primary-foreground/10 border-solid border-gray-400">
-        <CardHeader>
+      <Card className="group card-hover hover:bg-primary-foreground/10 border-solid border-gray-400 min-h-55 mb-20">
+        <CardHeader className="flex-1">
           <div className="flex items-center gap-4">
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2">
-                <CardTitle>{product.name}</CardTitle>
+                <CardTitle className="text-lg group-hover:text-primary transition-colors">
+                  {product.name}
+                </CardTitle>
                 {product.isFeatuered && (
-                  <Badge className="mb-2">Featured</Badge>
+                  <Badge className=" gap-1 bg-primary text-primary-foreground ">
+                    <StarIcon className="size-4" />
+                    Featured
+                  </Badge>
                 )}
               </div>
               <CardDescription>{product.description}</CardDescription>
+            </div>
+
+            {/* voting buttons */}
+            <div className="flex flex-col items-center gap-1 shrink-0">
+              <Button
+                variant="ghost"
+                size="icon-sm"
+                className="h-8 w-8 text-primary hover:bg-primary/20"
+              >
+                <ChevronUpIcon className="size-5" />
+              </Button>
+              <span className="font-medium text-lg">{product.votes}</span>
+              <Button
+                variant="ghost"
+                size="icon-sm"
+                className="h-8 w-8 text-gray-500 hover:bg-gray-500/20"
+              >
+                <ChevronUpIcon className="size-5 rotate-180" />
+              </Button>
             </div>
           </div>
         </CardHeader>
