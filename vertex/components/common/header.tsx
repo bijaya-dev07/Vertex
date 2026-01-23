@@ -1,4 +1,4 @@
-import { CompassIcon, HomeIcon, RocketIcon } from "lucide-react";
+import { CompassIcon, HomeIcon, RocketIcon, UserIcon } from "lucide-react";
 import Link from "next/link";
 import { Button } from "../ui/button";
 
@@ -16,6 +16,7 @@ const Logo = () => {
 };
 
 export default function Header() {
+  const isSingedIn = true; // TODO: Replace with actual authentication logic
   return (
     <header className="py-6 border-b sticky top-0 z-50 bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60">
       <div className="wrapper px-12">
@@ -36,14 +37,26 @@ export default function Header() {
               <CompassIcon className="size-4" />
               Explore
             </Link>
-            <div className="flex items-center gap-3">
-              <Button asChild>
-                <Link href="/submit">Submit Product</Link>
-              </Button>
-              <Button variant="ghost">Sign In</Button>
-              <Button>Sign Up</Button>
-            </div>
           </nav>
+          <div className="flex items-center gap-3">
+            {isSingedIn ? (
+              <>
+                {" "}
+                <Button asChild>
+                  <Link href="/submit">Submit Product</Link>
+                </Button>
+                {/* Clerk Profile */}
+                <Button variant="ghost">
+                  <UserIcon className="size-4" />
+                </Button>
+              </>
+            ) : (
+              <>
+                <Button variant="ghost">Sign In</Button>
+                <Button>Sign Up</Button>
+              </>
+            )}
+          </div>
         </div>
       </div>
     </header>
