@@ -1,48 +1,31 @@
+import EmptyState from "@/components/common/empty-state";
 import SectionHeader from "@/components/common/section-header";
 import ProductCard from "@/components/products/product-cards";
 import { RocketIcon } from "lucide-react";
 
 export default function RecentlyLaunchedProduct() {
-  const recentlyLaunchedProducts = [
-    {
-      id: 1,
-      name: "ParityKit",
-      description: "Description for project one.",
-      tags: ["DeFi", "Blockchain"],
-      votes: 120,
-      isFeatuered: true,
-    },
-    {
-      id: 2,
-      name: "VertexAI",
-      description: "Description for project two.",
-      tags: ["AI", "Machine Learning"],
-      votes: 95,
-      isFeatuered: true,
-    },
-    {
-      id: 3,
-      name: "ChainGuard",
-      description: "Description for project three.",
-      tags: ["Security", "Blockchain"],
-      votes: 80,
-      isFeatuered: true,
-    },
-  ];
+  const recentlyLaunchedProducts = [];
   return (
     <section className="py-20">
-      <div className="wrapper">
+      <div className="wrapper space-y-12 mb-8">
         <SectionHeader
           title="Recently Launched Products"
           icon={RocketIcon}
           description="The most recently lunched products on the platform"
         />
       </div>
-      <div className="grid-wrapper">
-        {recentlyLaunchedProducts.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-      </div>
+      {recentlyLaunchedProducts.length > 0 ? (
+        <div className="grid-wrapper">
+          {recentlyLaunchedProducts.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </div>
+      ) : (
+        <EmptyState
+          message="No recently launched products available."
+          icon={RocketIcon}
+        />
+      )}
     </section>
   );
 }

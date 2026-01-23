@@ -1,7 +1,16 @@
-export default function EmptyState() {
+import { icons, LucideIcon } from "lucide-react";
+export default function EmptyState({
+  message,
+  icon: Icon,
+}: {
+  message: string;
+  icon: LucideIcon;
+}) {
   return (
-    <div className="flex flex-col items-center justify-center py-20">
-      <h3 className="text-2xl font-semibold mb-4">No Data Available</h3>
+    <div className="empty-state">
+      {Icon && <Icon className="size-12 text-muted-foreground/50 mb-4" />}
+
+      <p className="text-lg font-medium">{message}</p>
     </div>
   );
 }
