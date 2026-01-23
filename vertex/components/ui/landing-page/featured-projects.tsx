@@ -6,7 +6,7 @@ import ProductCard from "@/components/products/product-cards";
 
 const featuredProducts = [
   {
-    id:1,
+    id: 1,
     name: "ParityKit",
     description: "Description for project one.",
     tags: ["DeFi", "Blockchain"],
@@ -14,7 +14,7 @@ const featuredProducts = [
     isFeatuered: true,
   },
   {
-    id:2,
+    id: 2,
     name: "VertexAI",
     description: "Description for project two.",
     tags: ["AI", "Machine Learning"],
@@ -22,13 +22,13 @@ const featuredProducts = [
     isFeatuered: true,
   },
   {
-    id:3,
+    id: 3,
     name: "ChainGuard",
-    description: "Description for project three.",  
+    description: "Description for project three.",
     tags: ["Security", "Blockchain"],
     votes: 80,
     isFeatuered: true,
-  }
+  },
 ];
 export default function FeaturedProjects() {
   return (

@@ -1,4 +1,4 @@
-import { icons, LucideIcon } from "lucide-react";
+import { LucideIcon } from "lucide-react";
 export default function EmptyState({
   message,
   icon: Icon,
@@ -8,9 +8,9 @@ export default function EmptyState({
 }) {
   return (
     <div className="empty-state flex flex-col items-center justify-center">
-      {Icon && <Icon className="size-12 text-muted-foreground/50 mb-4" />}
+      {Icon && <Icon className="size-12 text-muted-foreground/50 mb-6" />}
 
-      <p className="text-lg font-medium">{message}</p>
+      <p className="text-xl font-medium">{message}</p>
     </div>
   );
 }
