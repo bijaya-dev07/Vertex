@@ -16,7 +16,7 @@ const Logo = () => {
 };
 
 export default function Header() {
-  const isSingedIn = true; // TODO: Replace with actual authentication logic
+  const isSingedIn = false; // TODO: Replace with actual authentication logic
   return (
     <header className="py-6 border-b sticky top-0 z-50 bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60">
       <div className="wrapper px-12">
