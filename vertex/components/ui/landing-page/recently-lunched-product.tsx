@@ -1,8 +1,9 @@
 import SectionHeader from "@/components/common/section-header";
+import ProductCard from "@/components/products/product-cards";
 import { RocketIcon } from "lucide-react";
 
 export default function RecentlyLaunchedProduct() {
-  const featuredProducts = [
+  const recentlyLaunchedProducts = [
     {
       id: 1,
       name: "ParityKit",
@@ -36,6 +37,11 @@ export default function RecentlyLaunchedProduct() {
           icon={RocketIcon}
           description="The most recently lunched products on the platform"
         />
+      </div>
+      <div className="grid-wrapper">
+        {recentlyLaunchedProducts.map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
       </div>
     </section>
   );
