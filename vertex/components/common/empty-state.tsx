@@ -7,7 +7,7 @@ export default function EmptyState({
   icon: LucideIcon;
 }) {
   return (
-    <div className="empty-state">
+    <div className="empty-state flex flex-col items-center justify-center">
       {Icon && <Icon className="size-12 text-muted-foreground/50 mb-4" />}
 
       <p className="text-lg font-medium">{message}</p>

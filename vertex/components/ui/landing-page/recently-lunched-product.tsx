@@ -1,16 +1,16 @@
 import EmptyState from "@/components/common/empty-state";
 import SectionHeader from "@/components/common/section-header";
 import ProductCard from "@/components/products/product-cards";
-import { RocketIcon } from "lucide-react";
+import { Calendar1Icon, RocketIcon } from "lucide-react";
 
 export default function RecentlyLaunchedProduct() {
   const recentlyLaunchedProducts = [];
   return (
-    <section className="py-20">
+    <section className="px-20 py-5">
       <div className="wrapper space-y-12 mb-8">
         <SectionHeader
           title="Recently Launched Products"
-          icon={RocketIcon}
+          icon={Calendar1Icon}
           description="The most recently lunched products on the platform"
         />
       </div>
@@ -23,7 +23,7 @@ export default function RecentlyLaunchedProduct() {
       ) : (
         <EmptyState
           message="No recently launched products available."
-          icon={RocketIcon}
+          icon={Calendar1Icon}
         />
       )}
     </section>
