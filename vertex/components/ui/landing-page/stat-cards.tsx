@@ -13,13 +13,13 @@ export default function StatsCard({
 }) {
   return (
     <div
-      className={hasBorder ? "border-r border-muted-foreground/20 pr-4" : ""}
+      className={hasBorder ? "sm:border-r sm:border-muted-foreground/20 sm:pr-4" : ""}
     >
-      <div className="flex items-center justify-center gap-2">
-        <Icon className="size-5 text-primary/70" />
-        <p className="text-3xl sm:text-4xl font-bold">{value}</p>
+      <div className="flex items-center justify-center gap-3">
+        <Icon className="size-6 sm:size-8 text-primary/70" />
+        <p className="text-2xl sm:text-3xl font-bold">{value}</p>
       </div>
-      <p className="text-sm text-muted-foreground">{label}</p>
+      <p className="text-lg text-muted-foreground">{label}</p>
     </div>
   );
 }

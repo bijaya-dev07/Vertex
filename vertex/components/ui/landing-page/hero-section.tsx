@@ -7,7 +7,6 @@ import {
   RocketIcon,
   User2Icon,
   EyeIcon,
-  Sparkles,
 } from "lucide-react";
 import StatsCard from "./stat-cards";
 
@@ -16,7 +15,7 @@ export default function HeroSection() {
     return (
       <Badge
         variant="outline"
-        className="px-4 py-2 mb-8 text-sm gap-1 backdrop:blur-sm"
+        className="px-4 py-2 mb-2 text-sm gap-1 backdrop:blur-sm"
       >
         <span className="relative flex h-2 w-2">
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>{" "}
@@ -48,7 +47,7 @@ export default function HeroSection() {
     <div>
       <section className="relative overflow-hidden bg-linear-to-b from-background via-background to-muted/20">
         <div className="wrapper">
-          <div className="flex flex-col items-center justify-center lg:py-12 py-12 text-center">
+          <div className="flex flex-col items-center justify-center lg:py-8 py-8 text-center">
             <LiveBadge />
 
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-tight mb-2 max-w-6xl">
@@ -65,7 +64,7 @@ export default function HeroSection() {
               <Button asChild className="text-base px-6 shadow-lg" size="lg">
                 <Link href="/submit">
                   {" "}
-                   <Rocket className="size-5" />
+                  <Rocket className="size-5" />
                   Share Your Product
                 </Link>
               </Button>
