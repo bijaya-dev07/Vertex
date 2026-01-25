@@ -36,17 +36,20 @@ const featuredProducts = [
 export default function FeaturedProjects() {
   return (
     <div className="relative bg-[#0a1f14] text-slate-50">
+      {/* Blend into hero: top gradient fade */}
+      <div className="absolute inset-x-0 -top-16 h-24 bg-gradient-to-b from-transparent via-[#0a1f14]/40 to-[#0a1f14] z-0" />
+
       {/* Subtle grid overlay to match palette */}
       <div
         className="absolute inset-0 z-0 opacity-[0.08] pointer-events-none"
         style={{
           backgroundImage:
             `linear-gradient(#2d5a3d 1px, transparent 1px), linear-gradient(90deg, #2d5a3d 1px, transparent 1px)`,
-          backgroundSize: "40px 40px",
+          backgroundSize: "42px 42px",
         }}
       />
 
-      <section className="relative z-10 pt-12 sm:pt-16 lg:pt-20 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-16 max-w-8xl mx-auto">
+      <section className="relative z-10 pt-10 sm:pt-14 lg:pt-18 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-16 max-w-8xl mx-auto">
         <div className="wrapper">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-6 mb-8">
             <SectionHeader

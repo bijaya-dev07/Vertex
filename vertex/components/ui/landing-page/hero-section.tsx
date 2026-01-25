@@ -28,19 +28,19 @@ export default function HeroSection() {
   ];
 
   return (
-    <div className="relative min-h-screen bg-[#04120a] overflow-hidden selection:bg-[#4ade80]/30">
+    <div className="relative min-h-screen bg-[#0a1f14] overflow-hidden selection:bg-[#4ade80]/30">
       {/* 1. THE GRID SYSTEM (Directly from your image) */}
       <div 
-        className="absolute inset-0 z-0 opacity-[0.15]" 
+        className="absolute inset-0 z-0 opacity-[0.12]" 
         style={{ 
-          backgroundImage: `linear-gradient(#1a4d2e 1px, transparent 1px), linear-gradient(90deg, #1a4d2e 1px, transparent 1px)`, 
+          backgroundImage: `linear-gradient(#2d5a3d 1px, transparent 1px), linear-gradient(90deg, #2d5a3d 1px, transparent 1px)`, 
           backgroundSize: '45px 45px' 
         }} 
       />
 
       {/* 2. THE RADIAL GLOWS (Matching the lighting in your image) */}
-      <div className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] bg-[#1a4d2e]/40 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[400px] h-[400px] bg-[#4ade80]/10 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] bg-[#2d5a3d]/35 rounded-full blur-[120px] pointer-events-none opacity-80" />
+      <div className="absolute bottom-[-15%] right-[-10%] w-[400px] h-[400px] bg-[#4ade80]/10 rounded-full blur-[100px] pointer-events-none" />
 
       <section className="relative z-10 pt-24 pb-16 px-6">
         <div className="max-w-7xl mx-auto flex flex-col items-center text-center">
