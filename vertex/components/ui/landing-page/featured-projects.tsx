@@ -35,19 +35,29 @@ const featuredProducts = [
 ];
 export default function FeaturedProjects() {
   return (
-    <div>
-      <section className="pt-12 sm:pt-16 lg:pt-20 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-16 bg-muted/20">
+    <div className="relative bg-[#0a1f14] text-slate-50">
+      {/* Subtle grid overlay to match palette */}
+      <div
+        className="absolute inset-0 z-0 opacity-[0.08] pointer-events-none"
+        style={{
+          backgroundImage:
+            `linear-gradient(#2d5a3d 1px, transparent 1px), linear-gradient(90deg, #2d5a3d 1px, transparent 1px)`,
+          backgroundSize: "40px 40px",
+        }}
+      />
+
+      <section className="relative z-10 pt-12 sm:pt-16 lg:pt-20 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-16 max-w-8xl mx-auto">
         <div className="wrapper">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-6 mb-8">
             <SectionHeader
               title="Featured Today"
               icon={Star}
-              description="Check out the projects featured today."
+              description="The most innovative projects handpicked by the community."
             />
             <Button
               variant="outline"
               asChild
-              className="hidden sm:flex text-sm whitespace-nowrap"
+              className="hidden sm:flex text-sm whitespace-nowrap border-[#2d5a3d] text-[#a3b899] hover:text-[#4ade80] hover:bg-[#2d5a3d]/20"
             >
               <Link href="/explore">
                 See All <ArrowRightIcon className="ml-2 size-3 sm:size-4" />

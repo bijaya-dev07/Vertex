@@ -13,13 +13,18 @@ export default function StatsCard({
 }) {
   return (
     <div
-      className={hasBorder ? "sm:border-r sm:border-muted-foreground/20 sm:pr-4" : ""}
+      className={`p-6 flex flex-col items-center justify-center transition-all hover:bg-[#1a4d2e]/10 ${
+        hasBorder ? "lg:border-r border-[#1a4d2e]/50" : ""
+      }`}
     >
-      <div className="flex items-center justify-center gap-3">
-        <Icon className="size-6 sm:size-8 text-primary/70" />
-        <p className="text-2xl sm:text-3xl font-bold">{value}</p>
+      <div className="flex items-center gap-3 mb-2">
+        {/* Glow effect on the icon */}
+        <Icon className="size-6 sm:size-8 text-[#4ade80] drop-shadow-[0_0_8px_rgba(74,222,128,0.5)]" />
+        <p className="text-2xl sm:text-4xl font-bold tracking-tight text-white">{value}</p>
       </div>
-      <p className="text-lg text-muted-foreground">{label}</p>
+      <p className="text-sm sm:text-base text-[#a3b899] font-medium uppercase tracking-wider">
+        {label}
+      </p>
     </div>
   );
 }

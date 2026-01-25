@@ -5,11 +5,12 @@ import { Button } from "../ui/button";
 const Logo = () => {
   return (
     <Link href="/" className="flex items-center gap-2 group">
-      <div className="size-7 sm:size-8 rounded-lg bg-primary flex items-center justify-center">
-        <RocketIcon className="size-4 sm:size-4 text-primary-foreground" />
+      {/* Updated Logo with Hero Palette */}
+      <div className="size-8 sm:size-9 rounded-lg bg-[#4ade80] flex items-center justify-center shadow-[0_0_15px_rgba(74,222,128,0.4)] transition-transform group-hover:scale-110">
+        <RocketIcon className="size-5 text-[#04120a]" />
       </div>
-      <span className="text-base sm:text-xl font-bold">
-        Ve<span className="text-primary">rt</span>ex
+      <span className="text-lg sm:text-xl font-bold tracking-tight text-white">
+        Ve<span className="text-[#4ade80]">rt</span>ex
       </span>
     </Link>
   );
@@ -17,43 +18,60 @@ const Logo = () => {
 
 export default function Header() {
   const isSingedIn = false; // TODO: Replace with actual authentication logic
+
   return (
-    <header className="py-2 sm:py-3 border-b sticky top-0 z-50 bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60">
-      <div className="wrapper px-4 sm:px-6 lg:px-8">
-        <div className="flex h-14 sm:h-16 items-center justify-between">
+    <header className="sticky top-0 z-[60] w-full border-b border-[#1a4d2e]/40 bg-[#04120a]/80 backdrop-blur-xl supports-[backdrop-filter]:bg-[#04120a]/60">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex h-16 sm:h-20 items-center justify-between">
           <Logo />
-          <nav className="hidden sm:flex items-center gap-5">
+
+          {/* Navigation with custom hover states */}
+          <nav className="hidden md:flex items-center gap-2">
             <Link
               href="/"
-              className="flex items-center gap-2 px-2 sm:px-3 py-2 text-xs sm:text-sm font-medium text-muted-foreground hover:text-foreground transition-colors hover:bg-muted/10 rounded-md"
+              className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-[#a3b899] hover:text-[#4ade80] transition-all hover:bg-[#1a4d2e]/20 rounded-full"
             >
               <HomeIcon className="size-4" />
-              <span className="hidden sm:inline">Home</span>
+              <span>Home</span>
             </Link>
             <Link
-              href="/"
-              className="flex items-center gap-2 px-2 sm:px-3 py-2 text-xs sm:text-sm font-medium text-muted-foreground hover:text-foreground transition-colors hover:bg-muted/10 rounded-md"
+              href="/explore"
+              className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-[#a3b899] hover:text-[#4ade80] transition-all hover:bg-[#1a4d2e]/20 rounded-full"
             >
               <CompassIcon className="size-4" />
-              <span className="hidden sm:inline">Explore</span>
+              <span>Explore</span>
             </Link>
           </nav>
-          <div className="flex items-center gap-2 sm:gap-3">
+
+          <div className="flex items-center gap-3">
             {isSingedIn ? (
               <>
-                {" "}
-                <Button asChild className="text-xs sm:text-sm" size="sm">
+                <Button 
+                  asChild 
+                  size="sm"
+                  className="hidden sm:flex bg-[#4ade80] text-[#04120a] hover:bg-[#3dbd6d] font-semibold shadow-[0_0_10px_rgba(74,222,128,0.2)]"
+                >
                   <Link href="/submit">Submit Product</Link>
                 </Button>
-                {/* Clerk Profile */}
-                <Button variant="ghost" size="sm">
-                  <UserIcon className="size-4" />
+                <Button variant="ghost" size="icon" className="text-[#a3b899] hover:text-white hover:bg-[#1a4d2e]/30 rounded-full">
+                  <UserIcon className="size-5" />
                 </Button>
               </>
             ) : (
               <>
-                <Button variant="ghost" className="text-xs sm:text-sm" size="sm">Sign In</Button>
-                <Button className="text-xs sm:text-sm" size="sm">Sign Up</Button>
+                <Button 
+                  variant="ghost" 
+                  className="text-xs sm:text-sm text-[#a3b899] hover:text-white hover:bg-[#1a4d2e]/20" 
+                  size="sm"
+                >
+                  Sign In
+                </Button>
+                <Button 
+                  className="text-xs sm:text-sm bg-[#4ade80] text-[#04120a] hover:bg-[#3dbd6d] font-bold px-5" 
+                  size="sm"
+                >
+                  Sign Up
+                </Button>
               </>
             )}
           </div>

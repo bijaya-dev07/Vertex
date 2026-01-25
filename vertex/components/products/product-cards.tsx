@@ -20,53 +20,64 @@ interface product {
 }
 
 export default function ProductCard({ product }: { product: product }) {
-  const hasVoted = false; // Replace with actual voting
+  const hasVoted = false; 
+
   return (
     <Link href={`/products/${product.id}`}>
-      <Card className="group card-hover hover:bg-primary-foreground/10 border-solid border-gray-400 min-h-55 mb-4 sm:mb-6 lg:mb-8">
-        <CardHeader className="flex-1">
-          <div className="flex items-center gap-2 sm:gap-4">
+      <Card className="group relative overflow-hidden transition-all duration-300 bg-[#0a2012]/40 border-[#1a4d2e]/60 hover:border-[#4ade80]/50 hover:bg-[#1a4d2e]/20 backdrop-blur-sm min-h-[220px]">
+        {/* Subtle glow effect on hover */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#4ade80]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+        
+        <CardHeader className="flex-1 relative z-10">
+          <div className="flex items-start gap-4">
             <div className="flex-1 min-w-0">
-              <div className="flex items-center gap-2 flex-wrap">
-                <CardTitle className="text-base sm:text-lg group-hover:text-primary transition-colors">
+              <div className="flex items-center gap-2 flex-wrap mb-2">
+                <CardTitle className="text-lg sm:text-xl font-bold text-white group-hover:text-[#4ade80] transition-colors">
                   {product.name}
                 </CardTitle>
                 {product.isFeatuered && (
-                  <Badge className=" gap-1 bg-primary text-primary-foreground ">
-                    <StarIcon className="size-3 sm:size-4" />
+                  <Badge className="gap-1 bg-[#4ade80]/10 text-[#4ade80] border-[#4ade80]/20 hover:bg-[#4ade80]/20">
+                    <StarIcon className="size-3 fill-current" />
                     Featured
                   </Badge>
                 )}
               </div>
-              <CardDescription className="text-xs sm:text-sm mt-1">{product.description}</CardDescription>
+              <CardDescription className="text-[#a3b899] text-sm leading-relaxed line-clamp-3">
+                {product.description}
+              </CardDescription>
             </div>
 
-            {/* voting buttons */}
-            <div className="flex flex-col items-center gap-1 shrink-0">
+            {/* Voting Component - Stylized to match your grid image */}
+            <div className="flex flex-col items-center p-1 rounded-lg bg-[#04120a]/60 border border-[#1a4d2e] shrink-0">
               <Button
                 variant="ghost"
-                size="icon-sm"
-                className={`h-7 w-7 sm:h-8 sm:w-8 hover:bg-primary/20 ${hasVoted ? "text-primary" : "text-foreground"}`}
+                size="icon"
+                className={`h-8 w-8 hover:text-[#4ade80] hover:bg-transparent transition-colors ${hasVoted ? "text-[#4ade80]" : "text-[#a3b899]"}`}
               >
-                <ChevronUpIcon className="size-4 sm:size-5" />
+                <ChevronUpIcon className="size-5" />
               </Button>
-              <span className="text-xs sm:text-sm font-semibold transition-colors text-foreground">
+              <span className="text-sm font-bold text-white py-1">
                 {product.votes}
               </span>
               <Button
                 variant="ghost"
-                size="icon-sm"
-                className={`h-7 w-7 sm:h-8 sm:w-8 hover:bg-primary/20 ${hasVoted ? "text-primary" : "text-foreground"}`}
+                size="icon"
+                className="h-8 w-8 text-[#a3b899] hover:text-red-400 hover:bg-transparent transition-colors"
               >
-                <ChevronUpIcon className="size-4 sm:size-5 rotate-180" />
+                <ChevronUpIcon className="size-5 rotate-180" />
               </Button>
             </div>
           </div>
         </CardHeader>
-        <CardFooter>
-          <div className="flex items-center gap-1 sm:gap-2 flex-wrap">
+
+        <CardFooter className="relative z-10 border-t border-[#1a4d2e]/30 pt-4">
+          <div className="flex items-center gap-2 flex-wrap">
             {product.tags.map((tag) => (
-              <Badge variant="secondary" key={tag} className="text-xs">
+              <Badge 
+                variant="secondary" 
+                key={tag} 
+                className="text-[10px] uppercase tracking-wider bg-[#1a4d2e]/40 text-[#a3b899] border-none hover:bg-[#1a4d2e]/60"
+              >
                 {tag}
               </Badge>
             ))}
