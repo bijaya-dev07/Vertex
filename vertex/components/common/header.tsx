@@ -1,10 +1,4 @@
-import {
-  CompassIcon,
-  HomeIcon,
-  RocketIcon,
-  SparkleIcon,
-
-} from "lucide-react";
+import { CompassIcon, HomeIcon, RocketIcon, SparkleIcon } from "lucide-react";
 import Link from "next/link";
 import { Button } from "../ui/button";
 import {
@@ -33,7 +27,7 @@ export default function Header() {
   const isSingedIn = false; // TODO: Replace with actual authentication logic
 
   return (
-    <header className="sticky top-0 z-[60] w-full border-b border-[#2d5a3d]/40 bg-[#0a1f14]/80 backdrop-blur-xl supports-[backdrop-filter]:bg-[#0a1f14]/60">
+    <header className="sticky top-0 z-60 w-full border-b border-[#2d5a3d]/40 bg-[#0a1f14]/80 backdrop-blur-xl supports-backdrop-filter:bg-[#0a1f14]/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 sm:h-20 items-center justify-between">
           <Logo />
