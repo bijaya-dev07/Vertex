@@ -1,4 +1,4 @@
-import { CompassIcon, HomeIcon, RocketIcon, SparkleIcon } from "lucide-react";
+import { CompassIcon, HomeIcon, SparkleIcon } from "lucide-react";
 import Link from "next/link";
 import { Button } from "../ui/button";
 import {
@@ -11,10 +11,10 @@ import {
 
 const Logo = () => {
   return (
-    <Link href="/" className="flex items-center gap-2 group">
+    <Link href="/" className="flex items-center gap-1 group">
       {/* Updated Logo with Hero Palette */}
-      <div className="size-8 sm:size-9 rounded-lg bg-[#4ade80] flex items-center justify-center shadow-[0_0_15px_rgba(74,222,128,0.4)] transition-transform group-hover:scale-110">
-        <RocketIcon className="size-5 text-[#0a1f14]" />
+      <div className="size-8 sm:size-9 rounded-lg bg-[#4ade80] flex items-center justify-center shadow-[0_0_15px_rgba(74,222,128,0.4)] ">
+        <img src="/share.png" alt="Vertex Logo" className="size-5" />
       </div>
       <span className="text-lg sm:text-xl font-bold tracking-tight text-white">
         Ve<span className="text-[#4ade80]">rt</span>ex
