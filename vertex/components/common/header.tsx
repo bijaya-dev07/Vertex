@@ -8,13 +8,14 @@ import {
   SignUpButton,
   UserButton,
 } from "@clerk/nextjs";
+import Image from "next/image";
 
 const Logo = () => {
   return (
     <Link href="/" className="flex items-center gap-1 group">
       {/* Updated Logo with Hero Palette */}
       <div className="size-8 sm:size-9 rounded-lg bg-[#4ade80] flex items-center justify-center shadow-[0_0_15px_rgba(74,222,128,0.4)] ">
-        <img src="/share.png" alt="Vertex Logo" className="size-5" />
+        <Image src="/share.png" alt="Vertex Logo" width={20} height={20} className="size-5" />
       </div>
       <span className="text-lg sm:text-xl font-bold tracking-tight text-white">
         Ve<span className="text-[#4ade80]">rt</span>ex
