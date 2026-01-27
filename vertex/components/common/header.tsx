@@ -1,6 +1,19 @@
-import { CompassIcon, HomeIcon, RocketIcon, UserIcon } from "lucide-react";
+import {
+  CompassIcon,
+  HomeIcon,
+  RocketIcon,
+  SparkleIcon,
+
+} from "lucide-react";
 import Link from "next/link";
 import { Button } from "../ui/button";
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  SignUpButton,
+  UserButton,
+} from "@clerk/nextjs";
 
 const Logo = () => {
   return (
@@ -44,36 +57,40 @@ export default function Header() {
           </nav>
 
           <div className="flex items-center gap-3">
-            {isSingedIn ? (
+            <SignedOut>
+              <SignInButton />
+              <SignUpButton>
+                <Button>Sign Up</Button>
+              </SignUpButton>
+            </SignedOut>
+            <SignedIn>
+              <Button asChild>
+                <Link href="/submit">
+                  <SparkleIcon className="size-4" />
+                  Submit
+                </Link>
+              </Button>
+              <UserButton />
+            </SignedIn>
+            {/* {isSingedIn ? (
               <>
-                <Button 
-                  asChild 
-                  size="sm"
-                  className="hidden sm:flex bg-[#4ade80] text-[#0a1f14] hover:bg-[#3dbd6d] font-semibold shadow-[0_0_10px_rgba(74,222,128,0.2)]"
-                >
-                  <Link href="/submit">Submit Product</Link>
-                </Button>
-                <Button variant="ghost" size="icon" className="text-[#a3b899] hover:text-white hover:bg-[#2d5a3d]/30 rounded-full">
-                  <UserIcon className="size-5" />
-                </Button>
+                <SignedOut>
+                  <SignInButton />
+                  <SignUpButton>
+                    <button className="bg-[#6c47ff] text-white rounded-full font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 cursor-pointer">
+                      Sign Up
+                    </button>
+                  </SignUpButton>
+                </SignedOut>
+                <SignedIn>
+                  <UserButton />
+                </SignedIn>
               </>
             ) : (
               <>
-                <Button 
-                  variant="ghost" 
-                  className="text-xs sm:text-sm text-[#a3b899] hover:text-white hover:bg-[#2d5a3d]/20" 
-                  size="sm"
-                >
-                  Sign In
-                </Button>
-                <Button 
-                  className="text-xs sm:text-sm bg-[#4ade80] text-[#0a1f14] hover:bg-[#3dbd6d] font-bold px-5" 
-                  size="sm"
-                >
-                  Sign Up
-                </Button>
+             
               </>
-            )}
+            )} */}
           </div>
         </div>
       </div>
