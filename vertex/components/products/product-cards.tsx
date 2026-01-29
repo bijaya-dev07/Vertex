@@ -9,25 +9,20 @@ import {
 import { Badge } from "../ui/badge";
 import { ChevronUpIcon, StarIcon } from "lucide-react";
 import { Button } from "../ui/button";
+import { InferSelectModel } from "drizzle-orm";
+import { products } from "@/db/schema";
 
-interface product {
-  id: number;
-  name: string;
-  description: string;
-  tags: string[];
-  votes: number;
-  isFeatuered: boolean;
-}
+type product = InferSelectModel<typeof products>;
 
 export default function ProductCard({ product }: { product: product }) {
-  const hasVoted = false; 
+  const hasVoted = false;
 
   return (
     <Link href={`/products/${product.id}`}>
       <Card className="group relative overflow-hidden transition-all duration-300 bg-[#0a2012]/40 border-[#1a4d2e]/60 hover:border-[#4ade80]/50 hover:bg-[#1a4d2e]/20 backdrop-blur-sm min-h-[220px]">
         {/* Subtle glow effect on hover */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#4ade80]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-        
+
         <CardHeader className="flex-1 relative z-10">
           <div className="flex items-start gap-4">
             <div className="flex-1 min-w-0">
@@ -35,7 +30,7 @@ export default function ProductCard({ product }: { product: product }) {
                 <CardTitle className="text-lg sm:text-xl font-bold text-white group-hover:text-[#4ade80] transition-colors">
                   {product.name}
                 </CardTitle>
-                {product.isFeatuered && (
+                {product.voteCount > 100 && (
                   <Badge className="gap-1 bg-[#4ade80]/10 text-[#4ade80] border-[#4ade80]/20 hover:bg-[#4ade80]/20">
                     <StarIcon className="size-3 fill-current" />
                     Featured
@@ -57,7 +52,7 @@ export default function ProductCard({ product }: { product: product }) {
                 <ChevronUpIcon className="size-5" />
               </Button>
               <span className="text-sm font-bold text-white py-1">
-                {product.votes}
+                {product.voteCount}
               </span>
               <Button
                 variant="ghost"
@@ -72,10 +67,10 @@ export default function ProductCard({ product }: { product: product }) {
 
         <CardFooter className="relative z-10 border-t border-[#1a4d2e]/30 pt-4">
           <div className="flex items-center gap-2 flex-wrap">
-            {product.tags.map((tag) => (
-              <Badge 
-                variant="secondary" 
-                key={tag} 
+            {product.tags?.map((tag) => (
+              <Badge
+                variant="secondary"
+                key={tag}
                 className="text-[10px] uppercase tracking-wider bg-[#1a4d2e]/40 text-[#a3b899] border-none hover:bg-[#1a4d2e]/60"
               >
                 {tag}
