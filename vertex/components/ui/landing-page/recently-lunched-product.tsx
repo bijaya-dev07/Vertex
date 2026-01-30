@@ -1,17 +1,17 @@
 import EmptyState from "@/components/common/empty-state";
 import SectionHeader from "@/components/common/section-header";
 import ProductCard from "@/components/products/product-cards";
-import { Calendar1Icon, RocketIcon } from "lucide-react";
+import { getRecentLaunchedProducts } from "@/lib/products/product-select";
+import { Calendar1Icon } from "lucide-react";
 
-export default function RecentlyLaunchedProduct() {
-  const recentlyLaunchedProducts = [];
+export default async function RecentlyLaunchedProduct() {
+  const recentlyLaunchedProducts = await getRecentLaunchedProducts();
   return (
     <div className="relative bg-[#0a1f14] text-slate-50">
       <div
         className="absolute inset-0 z-0 opacity-[0.08] pointer-events-none"
         style={{
-          backgroundImage:
-            `linear-gradient(#2d5a3d 1px, transparent 1px), linear-gradient(90deg, #2d5a3d 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(#2d5a3d 1px, transparent 1px), linear-gradient(90deg, #2d5a3d 1px, transparent 1px)`,
           backgroundSize: "40px 40px",
         }}
       />
