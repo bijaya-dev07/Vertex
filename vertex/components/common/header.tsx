@@ -1,4 +1,11 @@
-import { CompassIcon, HomeIcon, SparkleIcon } from "lucide-react";
+"use client";
+
+import {
+  CompassIcon,
+  HomeIcon,
+  LoaderCircleIcon,
+  SparkleIcon,
+} from "lucide-react";
 import Link from "next/link";
 import { Button } from "../ui/button";
 import {
@@ -9,13 +16,19 @@ import {
   UserButton,
 } from "@clerk/nextjs";
 import Image from "next/image";
+import { Suspense } from "react";
 
 const Logo = () => {
   return (
     <Link href="/" className="flex items-center gap-1 group">
-      {/* Updated Logo with Hero Palette */}
       <div className="size-8 sm:size-9 rounded-lg bg-[#4ade80] flex items-center justify-center shadow-[0_0_15px_rgba(74,222,128,0.4)] ">
-        <Image src="/share.png" alt="Vertex Logo" width={20} height={20} className="size-5" />
+        <Image
+          src="/share.png"
+          alt="Vertex Logo"
+          width={20}
+          height={20}
+          className="size-5"
+        />
       </div>
       <span className="text-lg sm:text-xl font-bold tracking-tight text-white">
         Ve<span className="text-[#4ade80]">rt</span>ex
@@ -52,40 +65,29 @@ export default function Header() {
           </nav>
 
           <div className="flex items-center gap-3">
-            <SignedOut>
-              <SignInButton />
-              <SignUpButton>
-                <Button>Sign Up</Button>
-              </SignUpButton>
-            </SignedOut>
-            <SignedIn>
-              <Button asChild>
-                <Link href="/submit">
-                  <SparkleIcon className="size-4" />
-                  Submit
-                </Link>
-              </Button>
-              <UserButton />
-            </SignedIn>
-            {/* {isSingedIn ? (
-              <>
-                <SignedOut>
-                  <SignInButton />
-                  <SignUpButton>
-                    <button className="bg-[#6c47ff] text-white rounded-full font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 cursor-pointer">
-                      Sign Up
-                    </button>
-                  </SignUpButton>
-                </SignedOut>
-                <SignedIn>
-                  <UserButton />
-                </SignedIn>
-              </>
-            ) : (
-              <>
-             
-              </>
-            )} */}
+            <Suspense
+              fallback={
+                <div>
+                  <LoaderCircleIcon className="size-4 w-4 h-4 animate-spin" />
+                </div>
+              }
+            >
+              <SignedOut>
+                <SignInButton />
+                <SignUpButton>
+                  <Button>Sign Up</Button>
+                </SignUpButton>
+              </SignedOut>
+              <SignedIn>
+                <Button asChild>
+                  <Link href="/submit">
+                    <SparkleIcon className="size-4" />
+                    Submit Product
+                  </Link>
+                </Button>
+                <UserButton />
+              </SignedIn>
+            </Suspense>
           </div>
         </div>
       </div>
