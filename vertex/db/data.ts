@@ -135,4 +135,19 @@ export const allProducts = [
         submittedBy: "Bijaya@gmail.com",
         voteCount: 340,
     },
+    {
+        id: 10,
+        name: "DesignMastery Course",
+        slug: "designmastery-course",
+        tagline: "Master the art of design",
+        description:
+            "Master the art of design with our comprehensive course. Learn the principles of design, color theory, typography, and more to create stunning visuals.",
+        websiteUrl: "https://designmastery.com",
+        tags: ["Design", "Creativity", "Art"],
+        createdAt: new Date(Date.now() - 6 * 24 * 60 * 60 * 1000),
+        approvedAt: new Date(Date.now() - 6 * 24 * 60 * 60 * 1000),
+        status: "pending" as const,
+        submittedBy: "hu@gmail.com",
+        voteCount: 150,
+    }
 ];
