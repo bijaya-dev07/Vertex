@@ -1,4 +1,3 @@
-"use cache";
 import EmptyState from "@/components/common/empty-state";
 import SectionHeader from "@/components/common/section-header";
 import ProductCard from "@/components/products/product-cards";
