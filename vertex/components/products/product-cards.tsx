@@ -19,9 +19,9 @@ export default function ProductCard({ product }: { product: product }) {
 
   return (
     <Link href={`/products/${product.id}`}>
-      <Card className="group relative overflow-hidden transition-all duration-300 bg-[#0a2012]/40 border-[#1a4d2e]/60 hover:border-[#4ade80]/50 hover:bg-[#1a4d2e]/20 backdrop-blur-sm min-h-[220px]">
+      <Card className="group relative overflow-hidden transition-all duration-300 bg-[#0a2012]/40 border-[#1a4d2e]/60 hover:border-[#4ade80]/50 hover:bg-[#1a4d2e]/20 backdrop-blur-sm min-h-55">
         {/* Subtle glow effect on hover */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#4ade80]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+        <div className="absolute inset-0 bg-linear-to-br from-[#4ade80]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 
         <CardHeader className="flex-1 relative z-10">
           <div className="flex items-start gap-4">

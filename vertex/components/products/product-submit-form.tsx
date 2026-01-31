@@ -5,8 +5,13 @@ import { Button } from "../ui/button";
 import { RocketIcon } from "lucide-react";
 
 export default function ProductSubmitForm() {
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Handle form submission logic
+    console.log("Form submitted");
+  };
   return (
-    <form className="space-y-6">
+    <form className="space-y-6" onSubmit={handleSubmit}>
       <FormFields
         label="Product Name"
         name="productName"

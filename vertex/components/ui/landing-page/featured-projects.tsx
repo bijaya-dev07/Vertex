@@ -40,7 +40,7 @@ export default async function FeaturedProjects() {
   return (
     <div className="relative bg-[#0a1f14] text-slate-50">
       {/* Blend into hero: top gradient fade */}
-      <div className="absolute inset-x-0 -top-16 h-24 bg-gradient-to-b from-transparent via-[#0a1f14]/40 to-[#0a1f14] z-0" />
+      <div className="absolute inset-x-0 -top-16 h-24 bg-linear-to-b from-transparent via-[#0a1f14]/40 to-[#0a1f14] z-0" />
 
       {/* Subtle grid overlay to match palette */}
       <div
