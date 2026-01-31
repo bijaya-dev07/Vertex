@@ -22,6 +22,7 @@ export default function ProductSubmitForm() {
         required={true}
         onChange={() => {}}
         error=""
+        helperText="URL friendly names"
       />
       <FormFields
         label="Tagline"
@@ -49,6 +50,7 @@ export default function ProductSubmitForm() {
         required={true}
         onChange={() => {}}
         error=""
+        helperText="URL of your product"
       />
       <FormFields
         label="Tags"
@@ -58,6 +60,7 @@ export default function ProductSubmitForm() {
         required={true}
         onChange={() => {}}
         error=""
+        helperText="Tags related to your product"
       />
       <button
         type="submit"
