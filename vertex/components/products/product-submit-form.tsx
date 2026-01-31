@@ -1,6 +1,8 @@
 "use client";
 
 import { FormFields } from "@/components/forms/form-field";
+import { Button } from "../ui/button";
+import { RocketIcon } from "lucide-react";
 
 export default function ProductSubmitForm() {
   return (
@@ -41,6 +43,7 @@ export default function ProductSubmitForm() {
         required={true}
         onChange={() => {}}
         error=""
+        textarea={true}
       />
       <FormFields
         label="Website URL"
@@ -62,12 +65,10 @@ export default function ProductSubmitForm() {
         error=""
         helperText="Tags related to your product"
       />
-      <button
-        type="submit"
-        className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
-      >
+      <Button type="submit" slot="lg" className="w-full">
+        <RocketIcon className="size-4" />
         Submit Product
-      </button>
+      </Button>
     </form>
   );
 }
