@@ -3,15 +3,15 @@
 import { FormFields } from "@/components/forms/form-field";
 import { Button } from "../ui/button";
 import { RocketIcon } from "lucide-react";
+import { addProduct } from "@/lib/products/product-action";
 
 export default function ProductSubmitForm() {
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = async (formData: FormData) => {
     // Handle form submission logic
-    console.log("Form submitted");
+    await addProduct(formData);
   };
   return (
-    <form className="space-y-6" onSubmit={handleSubmit}>
+    <form className="space-y-6" action={handleSubmit}>
       <FormFields
         label="Product Name"
         name="productName"
