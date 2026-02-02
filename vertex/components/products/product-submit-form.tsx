@@ -3,15 +3,25 @@
 import { FormFields } from "@/components/forms/form-field";
 import { Button } from "../ui/button";
 import { RocketIcon } from "lucide-react";
-import { addProduct } from "@/lib/products/product-action";
+import { addProductAction } from "@/lib/products/product-action";
+import { useActionState } from "react";
+
+const initialState = {
+  error: {},
+  message: "",
+  success: false,
+};
 
 export default function ProductSubmitForm() {
-  const handleSubmit = async (formData: FormData) => {
-    // Handle form submission logic
-    await addProduct(formData);
-  };
+  const [state, formAction, isPending] = useActionState(
+    addProductAction,
+    initialState,
+  );
+
+  console.log("Form State:", state, "Is Pending:", isPending);
+
   return (
-    <form className="space-y-6" action={handleSubmit}>
+    <form className="space-y-6" action={formAction}>
       <FormFields
         label="Product Name"
         name="productName"
