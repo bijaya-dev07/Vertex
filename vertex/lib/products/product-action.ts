@@ -2,6 +2,7 @@
 
 import { auth } from "@clerk/nextjs/server";
 import error from "next/error";
+import { productSchema } from "./product-schema";
 
 type FormState = {
     success: boolean;
@@ -33,7 +34,7 @@ export const addProductAction = async (prevState: FormState, formData: FormData)
             error: error,
             message: "An error occurred while adding the product.",
         };
-
+        
         const data = validatedData.data;
 
         //transform tags into array

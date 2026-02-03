@@ -8,3 +8,5 @@ const productSchema = z.object({
     websiteURL: z.string().url("Invalid URL format"),
     tags: z.string().min(1, "At least one tag is required").max(100, { message: "Tags must be less than 100 characters" }).transform((val) => val.split(",").map((tag) => tag.trim())),
 });
+
+export { productSchema };
