@@ -13,6 +13,7 @@ type FormState = {
 export const addProductAction = async (prevState: FormState, formData: FormData) => {
     console.log(formData);
 
+    //authentication
     try {
         const { userId } = await auth();
 
@@ -26,7 +27,9 @@ export const addProductAction = async (prevState: FormState, formData: FormData)
 
         //data validation
         const rawFormData = Object.fromEntries(formData.entries());
+        
         const validatedData = productSchema.safeParse(rawFormData);
+
         const validatedData = productSchema.safeParse(rawFormData);
         if (!validatedData.success) {
              return {
