@@ -18,6 +18,8 @@ export default function ProductSubmitForm() {
     initialState,
   );
 
+  const { errors, message, success } = state;
+
   console.log("Form State:", state, "Is Pending:", isPending);
 
   return (
@@ -29,7 +31,7 @@ export default function ProductSubmitForm() {
         placeholder="Enter the name of your product"
         required={true}
         onChange={() => {}}
-        error=""
+        error={errors?.name}
       />
       <FormFields
         label="Product Slug"
@@ -38,7 +40,7 @@ export default function ProductSubmitForm() {
         placeholder="Enter the slug of your product"
         required={true}
         onChange={() => {}}
-        error=""
+        error={errors?.slug}
         helperText="URL friendly names"
       />
       <FormFields
@@ -48,7 +50,7 @@ export default function ProductSubmitForm() {
         placeholder="Enter a brief tagline of your product"
         required={true}
         onChange={() => {}}
-        error=""
+        error={errors?.tagline}
       />
       <FormFields
         label="Description"
@@ -57,7 +59,7 @@ export default function ProductSubmitForm() {
         placeholder="Enter a brief description of your product"
         required={true}
         onChange={() => {}}
-        error=""
+        error={errors?.description}
         textarea={true}
       />
       <FormFields
@@ -67,7 +69,7 @@ export default function ProductSubmitForm() {
         placeholder="Enter the URL of your product"
         required={true}
         onChange={() => {}}
-        error=""
+        error={errors?.websiteURL}
         helperText="URL of your product"
       />
       <FormFields
@@ -77,7 +79,7 @@ export default function ProductSubmitForm() {
         placeholder="Enter tags for your product"
         required={true}
         onChange={() => {}}
-        error=""
+        error={errors?.tags}
         helperText="Tags related to your product"
       />
       <Button type="submit" slot="lg" className="w-full">

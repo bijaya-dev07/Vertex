@@ -1,7 +1,6 @@
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import { Textarea } from "../ui/textarea";
-
 interface FormFieldsProps {
   label: string;
   name: string;

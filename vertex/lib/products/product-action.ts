@@ -1,7 +1,10 @@
 "use server";
 
-import { auth } from "@clerk/nextjs/server";
+import { auth, currentUser } from "@clerk/nextjs/server";
 import { productSchema } from "./product-validations";
+import { db } from "@/db";
+import { products } from "@/db/schema";
+import z from "zod";
 
 type FormState = {
     success: boolean;
@@ -24,6 +27,8 @@ export const addProductAction = async (prevState: FormState, formData: FormData)
             };
         }
 
+        const user = await currentUser();
+        const userEmail = user?.primaryEmailAddress?.emailAddress || "unknown";
         //data validation
         const rawFormData = Object.fromEntries(formData.entries());
 
@@ -37,10 +42,34 @@ export const addProductAction = async (prevState: FormState, formData: FormData)
             };
         }
 
-        const data = validatedData.data;
+        const { name, tagline, description, slug, websiteURL, tags } = validatedData.data;
 
-        //transform tags into array
+        const tagArray = tags ? tags.filter((tag) => typeof tag === "string") : [];
+        //transform tags into array/
+        await db.insert(products).values({
+            name,
+            description,
+            slug,
+            tagline,
+            website_url: websiteURL,
+            tags: tagArray, status: "pending",
+            submittedBy: userEmail,
+            user_id: userId,
+        });
+
+        return {
+            success: true,
+            message: "Product added successfully and it will be reviewed by our team shortly.",
+        };
     } catch (error) {
+        console.error("Error in addProductAction:", error);
+        if (error instanceof z.ZodError) {
+            return {
+                success: false,
+                error: error.flatten(),
+                message: "Validation error occurred while adding the product.",
+            };
+        }
         return {
             success: false,
             error: error,
