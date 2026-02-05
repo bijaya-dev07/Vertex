@@ -1,8 +1,7 @@
 "use server";
 
 import { auth } from "@clerk/nextjs/server";
-import error from "next/error";
-import { productSchema } from "./product-schema";
+import { productSchema } from "./product-validations";
 
 type FormState = {
     success: boolean;
@@ -27,17 +26,17 @@ export const addProductAction = async (prevState: FormState, formData: FormData)
 
         //data validation
         const rawFormData = Object.fromEntries(formData.entries());
-        
-        const validatedData = productSchema.safeParse(rawFormData);
 
         const validatedData = productSchema.safeParse(rawFormData);
+
         if (!validatedData.success) {
-             return {
-            success: false,
-            error: error,
-            message: "An error occurred while adding the product.",
-        };
-        
+            return {
+                success: false,
+                error: validatedData.error.flatten(),
+                message: "An error occurred while adding the product.",
+            };
+        }
+
         const data = validatedData.data;
 
         //transform tags into array
